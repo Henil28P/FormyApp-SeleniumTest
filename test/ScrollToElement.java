@@ -22,7 +22,7 @@ public class ScrollToElement {
         // To move to the above element using Actions class
         Actions actions = new Actions(driver); // Define new object of the Actions class
         actions.moveToElement(name); // to make the element in the view
-        name.sendKeys("Henil Patel")// Send keys to the element once it's in the view
+        name.sendKeys("Henil Patel"); // Send keys to the element once it's in the view
 
         // Automate the 'date' field
         WebElement date = driver.findElement(By.id("date"));
