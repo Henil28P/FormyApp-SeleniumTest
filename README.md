@@ -101,3 +101,29 @@ Other uses of CSS Selectors:
 - Finding based on a substring or string
 - Using wildcards
 - Child and sibling nodes
+
+Combine Multiple Attributes:
+Necessary when:
+- Web page has many of the same type of elements
+- No other options to describe a unique element
+
+Different combinations of CSS Selectors that can be used to locate elements:
+1. Tag and class or Tag and ID
+2. Tag and attribute
+3. Class and class
+and many more
+
+1. Tag and Class and Tag and ID:
+- To combine Tag and Class: `<input class="q" type="text">` --> `driver.findEelement(By.cssSelector("input.q"));`
+- To combine Tag and ID: `<input id="q" type="text">` --> `driver.findEelement(By.cssSelector("input#q"));`
+
+2. Tag and Attribute
+- To find by the element's "type" attribute: `<input type="radio" value="radio button">` --> `driver.findElement(By.cssSelector("input[type='radio']"))`
+- To find by the element's "value" attribute: `<input type="radio" value="radio button">` --> `driver.findElement(By.cssSelector("input[value='radio button']"))`
+
+3. Multiple Classes
+`<button type="button" class="btn btn-lg btn-primary">`
+`<button type="button" class="btn btn-lg btn-success">`
+`<button type="button" class="btn btn-lg btn-info">`
+For the above, the button element with the 'success' class can be found by:
+`driver.findElement(By.cssSelector(".btn.btn-lg.btn-success"))` (to specifically find that 'success' button)
