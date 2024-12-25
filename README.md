@@ -31,3 +31,8 @@ Selenium WebDriver works using Client-Server communication
 2. For each command in the test script, a request is sent to the WebDriver API which is a REST based service.
 3. The WebDriver API interprets the request and the step is then executed in the browser which acts as the server and just waits for requests to come in.
 4. Once each step is complete, the response is sent back to the WebDriver API and then the test script - this process continues until all tests are complete.
+
+ChromeDriver (Browser Driver) Info:
+- Maintained by Google
+- Implements the WebDriver wire protocol for Chromium which is an open-source browser project that aims to build a safer, faster and more stable way for users to experience the web.
+- Available on Chrome for Android and Desktop
