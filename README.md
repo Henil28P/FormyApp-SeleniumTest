@@ -13,3 +13,21 @@ Required tools for this project:
 The Selenium Project background:
 1. Selenium Grid - provides a central hub that allows multiple Selenium tests to run concurrently.
 2. Selenium IDE - Firefox plugin used to record each interaction of an application as test steps.
+
+Goals of WebDriver:
+- Quickly and easily write automated tests
+- Maintain a standardized API that is user-friendly
+- Emulate actions of users
+
+Ideal Users of WebDriver:
+- Tester who want to save time manually testing
+- Deevelopers have confidence in testing to know they aren't introducing regressions
+- Those who need to test across multiple browsers and platforms
+- Those who need a customizable and powerful framework
+
+WebDriver Architecture:
+Selenium WebDriver works using Client-Server communication
+1. When a Selenium test is executed, a new session of the browser is created and the browser window is launched.
+2. For each command in the test script, a request is sent to the WebDriver API which is a REST based service.
+3. The WebDriver API interprets the request and the step is then executed in the browser which acts as the server and just waits for requests to come in.
+4. Once each step is complete, the response is sent back to the WebDriver API and then the test script - this process continues until all tests are complete.
