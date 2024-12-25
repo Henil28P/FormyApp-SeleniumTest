@@ -70,3 +70,34 @@ Inspecting Elements:
 1. Hover mouse pointer over any element (eg. search bar on google.com)
 2. Right-click on the element and select "Inspect" from the menu
 3. Check the element locators (id, name, value, class, etc.)
+
+Various Ways to Locate Elements:
+- Class name
+- CSS selector
+- ID
+- Link text
+- Name
+- Tag name
+- XPath
+
+The best locators are those that are: `unique`, `descriptive` and `static (unlikely to change)` 
+Avoid using:
+- `Link text` - works only as long as links are unique on the page
+- `Tag name` - usually not unique or descriptive
+- `XPath` - not descriptive at all
+
+Prefer using: `ID`, `Class`, `Name`, `CSS Selector` - all of which are usually unique, descriptive and static
+
+The most power locator is `CSS Selectors`:
+- CSS Selectors are the most powerful choice in automation and can be used in conjunction with other types of locators.
+- They can locate the most hard-to-find elements.
+
+Examples:
+1. Find element by ID: `<input id="q" class="q" name="q">` --> `driver.findElement(By.cssSelector('#q'));` (# in CSS represents ID of HTML element)
+2. Find element by Class: `<input id="q" class="q" name="q">` --> `driver.findElement(By.cssSelector('.q'));`(. in CSS represents class of HTML element)
+3. Find element by Name: `<input id="q" class="q" name="q">` --> `driver.findElement(By.cssSelector("input[name='q'])");` (for any other locators)
+
+Other uses of CSS Selectors:
+- Finding based on a substring or string
+- Using wildcards
+- Child and sibling nodes
