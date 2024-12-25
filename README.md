@@ -62,3 +62,11 @@ Structure of basic test code for each Java class of this project:
 6. `driver.quit();` - quit driver and close associated windows
 
 --> Use the API documentation to see classes and methods of Selenium WebDriver: https://www.selenium.dev/selenium/docs/api/rb/Selenium/WebDriver.html
+
+Inspecting Elements:
+- Used to identify web element selectors to use in tests.
+- A crucial step in test writing
+- To inspect web elements in Chrome:
+1. Hover mouse pointer over any element (eg. search bar on google.com)
+2. Right-click on the element and select "Inspect" from the menu
+3. Check the element locators (id, name, value, class, etc.)
