@@ -7,7 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 // Drag and Drop can be great for moving or manipulating images (cropping or resizing) on screen
 // and arranging components on the screen (ie. such as moving virtual notecards around in columns)
 public class DragAndDrop {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         // Set the location for the ChromeDriver
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
@@ -25,6 +25,9 @@ public class DragAndDrop {
         // Define a new instance of the Actions class
         Actions actions = new Actions(driver);
         actions.dragAndDrop(image,box).build().perform(); // takes 2 parameters (source, target)
+
+        // Slow the test down by 2 seconds to clearly see and test drag and drop action by driver
+        Thread.sleep(2000);
 
         // Quit the driver instance
         driver.quit();
