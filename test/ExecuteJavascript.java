@@ -1,5 +1,8 @@
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
 
 // Executing Javascript commands in WebDriver tests
 // Selenium supports the JavascriptExecutor
@@ -27,6 +30,15 @@ public class ExecuteJavascript {
 
         // Navigate WebDriver to the modal (web page to be tested)
         driver.get("https://formy-project.herokuapp.com/modal");
+
+        // Firstly, find the button element to open modal
+        WebElement modalButton = driver.findElement(By.id("modal-button"));
+        modalButton.click(); // click button to open JS modal
+
+        // Once in the modal, click the close button
+        WebElement closeButton = driver.findElement(By.id("close-button"));
+        JavascriptExecutor js = (JavascriptExecutor)driver; // Create an object using JavascriptExecutor class
+        js.executeScript("arguments[0].click();", closeButton); // Use the 'js' object to execute a script
 
         // Quit the driver instance
         driver.quit();
