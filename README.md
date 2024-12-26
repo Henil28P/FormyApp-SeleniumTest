@@ -127,3 +127,51 @@ and many more
 `<button type="button" class="btn btn-lg btn-info">`
 For the above, the button element with the 'success' class can be found by:
 `driver.findElement(By.cssSelector(".btn.btn-lg.btn-success"))` (to specifically find that 'success' button)
+
+# Text Matching
+When there are no descriptive selectors, matching by text comes to the rescue.
+
+2 best ways to use a CSS selector based on text:
+1. Value - Matches text by exact value of selector
+2. Wildcard - Matches text based on a selector or part of a selector
+
+1. By Value:
+- Looks like `driver.findElement(By.cssSelector("<tagname>[type='<value>']"));`
+- If it becomes necessary to match text using a CSS selector, it's recommended using the element's value first.
+
+2. By Wildcard
+- Can match text based on string or substring
+- Prefix: `a[id=^='id_prefix_']`
+- Suffix: `a[id$='_id_suffix']`
+- Substring: `a[id*='id_pattern']`
+- Exact match: `a[id='id']`
+
+Examples for each of the above methods (prefix, suffix, etc.):
+1. By Exact Match: `<div id="textField">` --> `driver.getElement(By.cssSelector("div[id='textField']"));`
+2. By Prefix: `<div id="textField_randomId">` --> `driver.getElement(By.cssSelector("div[id^='textField']"));`
+3. By Suffix: `<div id="randomId_textField">` --> `driver.getElement(By.cssSelector("div[id$='textField']"));`
+4. By Substring: `<div id="123_textField_randomId">` --> `driver.getElement(By.cssSelector("div[id*='textField']"));`
+
+Using wildcards:
+Find Child Nodes
+1. Child: A node directly under another node
+2. Nth-child: used when there are multiple nodes at the same level under another node
+
+1. Child
+- Example:
+`<div id="parent">`
+`<a id="child" href="/child">Child</a>`
+`</div>`
+To find the child element:
+`driver.findElement(By.cssSelector("div#parent a"));`
+
+2. Nth-child
+- This is helpful when there are list of elements and we want to find 1 element within the list.
+- Example:
+`<ul id="list">`
+   `<li>One</li>`
+   `<li>Two</li>`
+   `<li>Three</li>`
+`</ul>`
+To find the list items:
+`driver.findElement(By.cssSelector("#list li:nth-child(n)"));` where 'n' is the list items within the list to find within the 'ul'
