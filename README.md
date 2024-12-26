@@ -215,3 +215,11 @@ Adding Waits:
 - Default wait time is 0
 - Doesn't depend on a certain element state, just time
 - Syntax: `driver.manage().timeouts().implicitlyWait(TimeOut, TimeUnit.SECONDS);` where TimeOut is int, TimeUnit is a measurement which can be microseconds, milliseconds or seconds
+
+1. Pros of Implicit waits
+- Easy to implement
+- Non-intrusive
+- They can be applied to all elements in the script (not just 1)
+
+2. Cons of Implicit waits
+- Implicit waits can end up waiting for too much time and if they're waiting when they don't need to be, they are just taking up unnecessary time
