@@ -223,3 +223,18 @@ Adding Waits:
 
 2. Cons of Implicit waits
 - Implicit waits can end up waiting for too much time and if they're waiting when they don't need to be, they are just taking up unnecessary time
+
+# Explicit waits
+- Wait for a specified amount of time for a certain condition to be true.
+- If the condition is not met in the time specified, an exception is thrown.
+- Explicit wait is intelligent
+- It gives better options than implicit waits
+- It waits for dynamically located elements
+- Syntax:
+1. Define a new `wait` object: `WebDdriverWait wait = new WebDriverWait(driver, 10);` where 10 is the max time to wait in seconds as the 2nd parameter
+2. Expected conditions to specify what we are waiting for (eg. wait for an element to become visible): `WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("element")));`
+- Other expected conditions for explicit waits besides from `visibilityOfElementsLocated` are: `elementToBeClickable()`, `elementToBeSelected()`, `presenceOfElementLocated()`, `textToBePresentInElement()` and more.
+
+1. Pros of Explicit waits
+- Allows flexibility to wait for an element to be in a specific condition
+- Will likely not take up unnecessary time
