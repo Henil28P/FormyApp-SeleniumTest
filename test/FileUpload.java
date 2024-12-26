@@ -1,3 +1,5 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 
@@ -14,6 +16,10 @@ public class FileUpload {
 
         // Navigate WebDriver to the fileupload (web page to be tested)
         driver.get("https://formy-project.herokuapp.com/fileupload");
+
+        // Automate the test for uploading an image file to the element on the web page
+        WebElement fileUploadField = driver.findElement(By.id("file-upload-field")); // Find the field element of where user can click to upload the file
+        fileUploadField.sendKeys("PN_employer_statement.jpg"); // Send the keys of the image name to be uploaded as a file on the web page
 
         // Quit the driver instance
         driver.quit();
