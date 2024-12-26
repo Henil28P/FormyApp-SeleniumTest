@@ -3,8 +3,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 
+import java.util.concurrent.TimeUnit;
+
 public class Autocomplete {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         // Set the location for the ChromeDriver
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
@@ -19,8 +21,8 @@ public class Autocomplete {
         WebElement autocomplete = driver.findElement(By.id("autocomplete"));
         autocomplete.sendKeys("1555 Park Blvd, Palo Alto, CA"); // Send text input to the autocomplete field
 
-        // To avoid NoSuchElementException (timing issue - slow the test down after entering the address
-        Thread.sleep(1000); // sleep for 1000 milliseconds (1 second) to wait for the next element to load from dropdown results
+        // Add an implicit wait instead of a Thread.sleep()
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // implicitly wait for 5 seconds to avoid synchronization issue in automated test
 
         // Find that element (the result that pops up produced by the autocomplete field)
         WebElement autocompleteResult = driver.findElement(By.className("pac-item"));
