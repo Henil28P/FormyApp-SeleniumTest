@@ -175,3 +175,37 @@ To find the child element:
 `</ul>`
 To find the list items:
 `driver.findElement(By.cssSelector("#list li:nth-child(n)"));` where 'n' is the list items within the list to find within the 'ul'
+
+# Synchronization Issues when running Selenium tests
+Test Speed:
+- Sometimes it takes a moment for: Pages to load, actions to finish, or components to appear.
+
+Why do synchronization issues occur?
+1. Browser driver speed:
+- Browser drivers operate at different speeds
+- ChromeDriver and geckodriver are fastest browser drivers
+
+2. Where tests are executed
+- As the number of simultaneous tests increases, there is a discrepancy between running tests in a local machine as opposed to running tests in a remote or virtual machine.
+
+3. Network speed
+- Makes a difference in how tests execute
+- Pages can be slow to render
+
+Therefore, note that no matter the reason, synchronization will become an issue at some point with Selenium WebDriver tests and it is critical to learn how to manage it in your test.
+
+Identify synchronization issue:
+- Test gets stuck at a steep
+- "No Such Element Exception" fails tests
+
+An `ElementNotFound` error can indicate 2 things:
+1. The element could not be found by the locator specified at the time of searching for it.
+2. The element is not visible or present on the page at the time of searching for it.
+
+Adding Waits:
+- If the locator has been correctly specified, the solution is to add a wait.
+- Waits slow down the test, and search for the element specified only after it becomes available.
+
+2 different types of waits:
+1. Implicit waits
+2. Explicit waits
