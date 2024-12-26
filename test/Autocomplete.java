@@ -2,6 +2,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,11 +23,11 @@ public class Autocomplete {
         WebElement autocomplete = driver.findElement(By.id("autocomplete"));
         autocomplete.sendKeys("1555 Park Blvd, Palo Alto, CA"); // Send text input to the autocomplete field
 
-        // Add an implicit wait instead of a Thread.sleep()
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); // implicitly wait for 5 seconds to avoid synchronization issue in automated test
+        // Add an Explicit wait instead of an implicit wait and Thread.sleep()
+        WebDriverWait wait = new WebDriverWait(driver, 10); // Create an object 'wait' using WebDriverWait class and set 10 seconds as max time to wait
 
         // Find that element (the result that pops up produced by the autocomplete field)
-        WebElement autocompleteResult = driver.findElement(By.className("pac-item"));
+        WebElement autocompleteResult = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("pac-item"))); // set expected condition based on visibility of the autocomplete field element
         autocompleteResult.click(); // Click the result in the dropdown menu
 
         // Quit the driver instance
