@@ -209,3 +209,9 @@ Adding Waits:
 2 different types of waits:
 1. Implicit waits
 2. Explicit waits
+
+# Implicit waits
+- Tells the WebDriver to wait for a specified amount of time before throwing a no such element exception
+- Default wait time is 0
+- Doesn't depend on a certain element state, just time
+- Syntax: `driver.manage().timeouts().implicitlyWait(TimeOut, TimeUnit.SECONDS);` where TimeOut is int, TimeUnit is a measurement which can be microseconds, milliseconds or seconds
