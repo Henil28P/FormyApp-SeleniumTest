@@ -1,3 +1,6 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 
@@ -14,6 +17,12 @@ public class Datepicker {
 
         // Navigate WebDriver to the datepicker (web page to be tested)
         driver.get("https://formy-project.herokuapp.com/datepicker");
+
+        // Automate the datepicker functionality test
+        WebElement dateField = driver.findElement(By.id("datepicker")); // Find the Datepicker field
+        dateField.sendKeys("03/01/2025"); // Can automate datepicker by opening up a datepicker and click on a specific field/date or can just send keys directly to the datepicker field
+        // Close the Datepicker (just by sending keys to the datepicker field does not close it automatically
+        dateField.sendKeys(Keys.RETURN); // Press "Enter" on the field and use Keys class and RETURN presses the "Enter" key
 
         // Quit the driver instance
         driver.quit();
