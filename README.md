@@ -238,3 +238,7 @@ Adding Waits:
 1. Pros of Explicit waits
 - Allows flexibility to wait for an element to be in a specific condition
 - Will likely not take up unnecessary time
+
+# Page Objects
+- Allows functionality to be separated into different classes based on area of functionality
+- Benefits: organize test code and keep test clean and readable.
