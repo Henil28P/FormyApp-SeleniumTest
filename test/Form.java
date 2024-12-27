@@ -20,6 +20,18 @@ public class Form {
         // Navigate WebDriver to the form (web page to be tested)
         driver.get("https://formy-project.herokuapp.com/form");
 
+        submitForm(driver);
+
+        waitForAlertBanner(driver);
+
+        // Now define the assertion
+        Assert.assertEquals("The form was successfully submitted!", getAlertBannerText(driver));
+
+        // Quit the driver instance
+        driver.quit();
+    }
+
+    public static void submitForm(WebDriver driver) {
         // Automate test for all fields in the sign up form of Formy app
         driver.findElement(By.id("first-name")).sendKeys("Alex");
         driver.findElement(By.id("last-name")).sendKeys("Crisp");
@@ -32,19 +44,18 @@ public class Form {
 
         // Submit the form
         driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click(); // Click on the submit button (it has multiple classes so need to be separated by .
+    }
 
-        // Confirm that the submission of form was successful by waiting for the success banner (green) to appear
+    // Confirm that the submission of form was successful by waiting for the success banner (green) to appear
+    public static void waitForAlertBanner(WebDriver driver) {
         // 1. Add an explicit wait to wait for the Thanks page to appear and can choose the alert banner element to wait for upon submission
         WebDriverWait wait = new WebDriverWait(driver, 10); // Adding wait here is necessary because we're switching pages in the Formy app and it'll take some time for the new page to load
-        WebElement alert = wait.until((ExpectedConditions.visibilityOfElementLocated(By.className("alert")))); // wait for 10 seconds for the 'alert' class to be visible
+        wait.until((ExpectedConditions.visibilityOfElementLocated(By.className("alert")))); // wait for 10 seconds for the 'alert' class to be visible
+    }
 
-        // Next, add an assertion using JUnit assertion framework for Java projects - assertions are used in test to confirm values and behaviours
-        // A suitable assertion here would be to test the text displayed is equal to the expected text
-        String alertText = alert.getText(); // Get the text from the 'alert' web element on page which will be the actual text that we'll get from the text
-        // Now define the assertion
-        Assert.assertEquals("The form was successfully submitted!", alertText);
-
-        // Quit the driver instance
-        driver.quit();
+    // Next, add an assertion using JUnit assertion framework for Java projects - assertions are used in test to confirm values and behaviours
+    // A suitable assertion here would be to test the text displayed is equal to the expected text
+    public static String getAlertBannerText(WebDriver driver) {
+        return driver.findElement(By.className("alert")).getText(); // Get the text from the 'alert' web element on page which will be the actual text that we'll get from the text
     }
 }
