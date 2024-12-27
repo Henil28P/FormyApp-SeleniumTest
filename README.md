@@ -254,3 +254,23 @@ How it works:
 What to know about the Selenium grid:
 1. Will have to maintain grid infrastructure
 2. Choose physical or virtual machines
+
+# Continuous Integration
+- It provides continuous feedback that tests are working and validates the functionality of the application is working as expected.
+- Many CI servers integrate well with Selenium WebDriver - they can be run automatically on a regular basis.
+- Few CI servers:
+
+1. CircleCI - cloud service that supports GitHub projects and all major programming languages (Java, JS, Typescript, etc.)
+- It is a flexible tool that offers support to run jobs concurrently up to 16 parallel builds each isolated in their own container.
+
+2. Jenkins - open-source CI tool written in Java that can be hosted locally or remotely.
+- It's a cross-platform tool that offers configuration both through a GUI interface as well as console commands.
+
+3. TeamCity - from JetBrains which offers all of its features in its free version and also good solution for Enterprise services
+4. TravisCI - oldest CI servers and offers both hosted and on-premise variants, free for all open-source projects hosted on GitHub and for the first 100 builds
+
+Picking a CI server is based on certain factors:
+- Infrastructure
+- Setup
+- Maintenance
+- Flexibility
