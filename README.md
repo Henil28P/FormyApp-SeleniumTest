@@ -242,3 +242,15 @@ Adding Waits:
 # Page Objects
 - Allows functionality to be separated into different classes based on area of functionality
 - Benefits: organize test code and keep test clean and readable.
+
+# Selenium Grid
+- Proxy server that routes commands to remote browser instances
+- It spreads the load of testing across several machines
+- These machines can run different browsers and browser versions, and different platforms as well.
+
+How it works:
+- One server acts as the hub and routes JSON-formatteed test commands to grid nodes to access browser instances.
+
+What to know about the Selenium grid:
+1. Will have to maintain grid infrastructure
+2. Choose physical or virtual machines
