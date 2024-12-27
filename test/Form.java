@@ -1,7 +1,11 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import package org.junit.Assert.assertEquals;
 
 // This test automates the test of successful sign up of a user in the Formy form page
 public class Form {
@@ -28,6 +32,17 @@ public class Form {
 
         // Submit the form
         driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click(); // Click on the submit button (it has multiple classes so need to be separated by .
+
+        // Confirm that the submission of form was successful by waiting for the success banner (green) to appear
+        // 1. Add an explicit wait to wait for the Thanks page to appear and can choose the alert banner element to wait for upon submission
+        WebDriverWait wait = new WebDriverWait(driver, 10); // Adding wait here is necessary because we're switching pages in the Formy app and it'll take some time for the new page to load
+        WebElement alert = wait.until((ExpectedConditions.visibilityOfElementLocated(By.className("alert")))); // wait for 10 seconds for the 'alert' class to be visible
+
+        // Next, add an assertion using JUnit assertion framework for Java projects - assertions are used in test to confirm values and behaviours
+        // A suitable assertion here would be to test the text displayed is equal to the expected text
+        String alertText = alert.getText(); // Get the text from the 'alert' web element on page which will be the actual text that we'll get from the text
+        // Now define the assertion
+        assertEquals("The form was successfully submitted!", alertText);
 
         // Quit the driver instance
         driver.quit();
