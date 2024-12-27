@@ -274,3 +274,21 @@ Picking a CI server is based on certain factors:
 - Setup
 - Maintenance
 - Flexibility
+
+# Cloud-based Test Tools
+- Allows for hundreds of thousands of combinations of cross-browser, cross-device, and cross-platform testing.
+- It's an alternative for building out your own Selenium Grid infrastructure where you don't have to worry about maintaining that infrastructure yourself.
+- With cloud-based test tools, Virtual Machines can spin up on demand with a certain set of specifications, run tests, and then shut down.
+- SauceLabs is one of the most recommended cloud-based test tools - easier to set up --> `https://saucelabs.com`
+
+1. Advantages of Saucelabs:
+- Supports all major programming languages
+- Real device testing
+- Integrate well with CI servers (such as CircleCI, Jenkins, etc.)
+
+To use SauceLabs, specify:
+- Sauce username
+- Sauce access key
+- URL to spin up a new VM to specified capabilities
+
+Then all those above are used to create a new remote WebDriver
