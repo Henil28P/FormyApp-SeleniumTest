@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import package org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 // This test automates the test of successful sign up of a user in the Formy form page
 public class Form {
@@ -42,7 +42,7 @@ public class Form {
         // A suitable assertion here would be to test the text displayed is equal to the expected text
         String alertText = alert.getText(); // Get the text from the 'alert' web element on page which will be the actual text that we'll get from the text
         // Now define the assertion
-        assertEquals("The form was successfully submitted!", alertText);
+        Assert.assertEquals("The form was successfully submitted!", alertText);
 
         // Quit the driver instance
         driver.quit();
